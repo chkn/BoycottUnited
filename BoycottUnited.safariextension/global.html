@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Boycott United Extension</title>
+<script type="text/javascript">
+
+function handleMessage(msg) {
+    if (msg.name === "getSettings") {
+		// must convert to proper object
+		var dest = {};
+		var src = safari.extension.settings;
+		var keys = Object.keys(src);
+		for (var i = 0; i < keys.length; i++) {
+			var key = keys[i];
+			dest[key] = src[key];
+		}
+		msg.target.page.dispatchMessage("settings", dest);
+	}
+}
+
+if (safari && safari.application) {
+	// Register to receive messages from scripts injected in pages
+	safari.application.addEventListener("message", handleMessage, false);
+}
+
+</script>
+</head>
+<body>
+</body>
+</html>

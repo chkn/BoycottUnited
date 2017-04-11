@@ -1,8 +1,8 @@
-(function() {
+function run(settings) {
 
 	// Set this to true to set the background of elements
 	//  to red instead of hiding them.
-	var DEBUG = false;
+	var DEBUG = (!!settings.debug) && (settings.debug != "false");
 
 	// Observes the first element that matches the given selector
 	//  and executes action(mutations) for every change.
@@ -87,4 +87,18 @@
 	var script = hostScripts[location.hostname];
 	if (script)
 		script();
-})();
+}
+
+// We need to asynchronously get our settings..
+
+function handleMessage(msg) {
+    if (msg.name === "settings")
+        run(msg.message);
+}
+
+if (safari) {
+	safari.self.addEventListener("message", handleMessage, false);
+	safari.self.tab.dispatchMessage("getSettings", null);
+} else {
+	run({});
+}
