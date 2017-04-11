@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Extension Updates</key>
+	<array>
+		<dict>
+			<key>URL</key>
+			<string>https://github.com/chkn/BoycottUnited/releases/download/v1.0/BoycottUnited.safariextz</string>
+			<key>CFBundleShortVersionString</key>
+			<string>1.0</string>
+			<key>CFBundleVersion</key>
+			<string>1</string>
+			<key>Developer Identifier</key>
+			<string>FR2HC32LUS</string>
+			<key>CFBundleIdentifier</key>
+			<string>mobi.chkn.boycottunited</string>
+		</dict>
+	</array>
+</dict>
+</plist>

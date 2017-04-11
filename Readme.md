@@ -47,7 +47,7 @@ If you are technically savvy and willing to help, please fork the project and se
 
 ## Contributors
 
-- Alex Corrado
+- Alex Corrado (@chknofthescene)
 
 
 [0]: https://github.com/chkn/BoycottUnited/issues/new
