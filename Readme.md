@@ -14,7 +14,7 @@ Want to request a browser that's not on the list? Please [open an issue][0].
 
 List sorted alphabetically:
 
-- Safari
+- Safari: [install extension](https://github.com/chkn/BoycottUnited/releases/download/v1.0/BoycottUnited.safariextz)
 
 ## Supported Sites
 

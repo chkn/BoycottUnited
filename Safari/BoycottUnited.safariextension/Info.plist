@@ -52,6 +52,8 @@
 			<string>Some</string>
 		</dict>
 	</dict>
+	<key>Update Manifest URL</key>
+	<string>https://raw.githubusercontent.com/chkn/BoycottUnited/master/Safari/Updates.plist</string>
 	<key>Website</key>
 	<string>https://github.com/chkn/BoycottUnited</string>
 </dict>
