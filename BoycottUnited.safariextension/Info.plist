@@ -27,7 +27,7 @@
 		</dict>
 	</dict>
 	<key>Description</key>
-	<string>Removes United flights from popular travel search engine results.</string>
+	<string>Removes United flight results from popular travel search engines.</string>
 	<key>DeveloperIdentifier</key>
 	<string>0000000000</string>
 	<key>ExtensionInfoDictionaryVersion</key>
@@ -39,6 +39,7 @@
 			<key>Allowed Domains</key>
 			<array>
 				<string>www.priceline.com</string>
+				<string>www.cheapoair.com</string>
 			</array>
 			<key>Include Secure Pages</key>
 			<true/>

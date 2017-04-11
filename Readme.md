@@ -1,6 +1,6 @@
 # Boycott United
 
-This is a browser extension to filter out United flights from popular travel search engine results.
+This is a browser extension to filter out United flight results from popular travel search engines.
 
 ## Supported Browsers
 
@@ -12,4 +12,5 @@ List sorted alphabetically:
 
 List sorted alphabetically:
 
+- Cheapoair
 - Priceline

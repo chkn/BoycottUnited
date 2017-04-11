@@ -14,30 +14,68 @@
 		}
 	}
 
+	// Hides the given element
+	function hideEl(el) {
+		if (DEBUG)
+			el.style.backgroundColor = "red";
+		else
+			el.style.display = "none";
+	}
+
 	// Hides all elements that match the given CSS selector
 	//  and optionally the given predicate.
-	function hide(sel, pred) {
+	function hideSel(sel, pred) {
 		var els = document.querySelectorAll(sel);
 		for (var i = 0; i < els.length; i++) {
 			var el = els[i];
-			if (!pred || pred(el)) {
-				if (DEBUG)
-					el.style.backgroundColor = "red";
-				else
-					el.style.display = "none";
-			}
+			if (!pred || pred(el))
+				hideEl(el, pred);
+		}
+	}
+
+	// Hides a column in a table at 0-based index.
+	// (Assumes colSpan for all columns is 1)
+	function hideCol(table, index) {
+		// nth-child is 1-based
+		var i = index + 1;
+		var rows = table.getElementsByTagName("tr");
+		for (var r = 0; r < rows.length; r++) {
+			var col = rows[r].querySelector("th:nth-child(" + i + "), td:nth-child(" + i + ")");
+			hideEl(col);
 		}
 	}
 
 	// Maps host names to a function for removing the desired content.
+	//  Keep list sorted alphabetically if possible.
 	var hostScripts = {
+
+		"www.cheapoair.com": function() {
+			// find sidebar checkbox, uncheck and hide it
+			hideSel("#alliancememberName-UA", function(el) {
+				var chk = el.querySelector("input[type=checkbox]");
+				if (chk)
+					chk.checked = "";
+				return true;
+			});
+
+			// column in the matrix at the top
+			var matrix = document.getElementById("mtrx_table");
+			if (matrix) {
+				var headers = matrix.getElementsByTagName("th");
+				for (var i = 0; i < headers.length; i++) {
+					var hd = headers[i];
+					if (hd.innerHTML.indexOf("United Airlines") != -1)
+						hideCol(matrix, i);
+				}
+			}
+		},
 
 		"www.priceline.com": function() {
 			observe(".main-content", function() {
 				// sidebar selector
-				hide("fly-mobile-checkbox[checkbox-name=UA]");
+				hideSel("fly-mobile-checkbox[checkbox-name=UA]");
 				// search results
-				hide(".fly-itinerary", function(el) {
+				hideSel(".fly-itinerary", function(el) {
 					var el2 = el.querySelector(".fly-airline-title");
 					return el2 && (el2.innerHTML.indexOf("United Airlines") != -1);
 				});
